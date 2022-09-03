@@ -1,0 +1,12 @@
+@tailwind base;
+
+:root {
+  --theme-color: #52b3d0;
+}
+
+/* ... */
+
+.btn {
+  background-color: var(--theme-color);
+  /* ... */
+}

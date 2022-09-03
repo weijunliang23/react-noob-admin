@@ -42,6 +42,7 @@ function App() {
             return <Route key={path} path={path} element={<RouteComp />}></Route>
           })}
         </Routes>
+        <button className='btn'></button>
       </BrowserRouter>
     </>
   )
