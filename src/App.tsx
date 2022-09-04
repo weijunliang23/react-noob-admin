@@ -1,32 +1,24 @@
 import { useState } from 'react'
 import './App.css'
-import { Link, Route, Routes, BrowserRouter } from 'react-router-dom'
+import Layout from './pages/Layout'
+import Home from './pages/Home'
+import { Link, Route, Routes, BrowserRouter, Navigate } from 'react-router-dom'
 import routes from './router'
-// Auto generates routes from files under ./pages
-// https://vitejs.dev/guide/features.html#glob-import
+
 
 function App() {
 
   return (
     <>
       <BrowserRouter>
-        <nav>
-          <ul>
-            {routes.map(({ name, path }) => {
-              return (
-                <li key={path}>
-                  <Link to={path}>{name}</Link>
-                </li>
-              )
-            })}
-          </ul>
-        </nav>
         <Routes>
-          {routes.map(({ path, component: RouteComp }) => {
-            return <Route key={path} path={path} element={<RouteComp />}></Route>
-          })}
+          <Route path='/' element={<Layout></Layout>} >
+            {routes.map(({ path, component: RouteComp }) => {
+              return <Route key={path} path={path} element={<RouteComp />}></Route>
+            })}
+            <Route path='/home' element={<Home />} />
+          </Route>
         </Routes>
-        <button className='btn'></button>
       </BrowserRouter>
     </>
   )
