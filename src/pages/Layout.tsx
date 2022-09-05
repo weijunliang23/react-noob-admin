@@ -2,10 +2,10 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined
 } from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
-import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import { NavLink as Link } from "react-router-dom"
+import { Layout, Menu, Button } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { NavLink as Link, useLocation, Outlet, useNavigate } from "react-router-dom"
+import { useToggleTheme, getTheme } from '../utils/toggleTheme'
 const routes = [
   {
     name: "home",
@@ -25,6 +25,13 @@ const routes = [
 ]
 const { Header, Sider, Content } = Layout;
 const LayoutIndex = () => {
+  const u = useLocation()
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (u.pathname === '/') {
+      navigate('/home', { replace: true })
+    }
+  }, [])
   const [collapsed, setCollapsed] = useState(false);
   const handleClickMenu = () => {
   }
@@ -38,7 +45,7 @@ const LayoutIndex = () => {
               theme="dark"
               mode="inline"
               onClick={handleClickMenu}
-              defaultSelectedKeys={['1']}
+              defaultSelectedKeys={['home']}
               items={routes}
             />
           </Sider>
@@ -56,6 +63,9 @@ const LayoutIndex = () => {
               className: 'trigger',
               onClick: () => setCollapsed(!collapsed),
             })}
+            <Button className='dark:bg-black dark:text-white' onClick={useToggleTheme}>{
+              getTheme() === 'dark' ? '切换明亮模式' : '切换黑夜模式'
+            }</Button>
           </Header>
         </Layout>
         <Layout>
