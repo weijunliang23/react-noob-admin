@@ -5,35 +5,27 @@ import {
 import { Layout, Menu, Button } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { NavLink as Link, useLocation, Outlet, useNavigate } from "react-router-dom"
+import { TypeMenu } from 'src/@types/test';
+import { routes } from '../router/routes'
 import { useToggleTheme, getTheme } from '../utils/toggleTheme'
-const routes = [
-  {
-    name: "home",
-    key: "home",
-    label: <Link to="/home">首页</Link>
-  },
-  {
-    name: "advance",
-    key: "advance",
-    label: <Link to="/advance">每日进步</Link>
-  },
-  {
-    name: "test",
-    key: "test",
-    label: <Link to="/test">每日测试</Link>
-  }
-]
+
 const { Header, Sider, Content } = Layout;
 const LayoutIndex = () => {
   const u = useLocation()
   const navigate = useNavigate()
+
+  // redirect
   useEffect(() => {
     if (u.pathname === '/') {
       navigate('/home', { replace: true })
     }
   }, [])
   const [collapsed, setCollapsed] = useState(false);
-  const handleClickMenu = () => {
+
+  // click-menu navigate level1 or invalid -> noop
+  const handleClickMenu = (e: TypeMenu) => {
+    if (u.pathname === e.key || e.key.startsWith('pid')) return
+    navigate(e.key)
   }
   return (
     <div>
