@@ -2,5 +2,5 @@ export interface TypeMenu {
   key: string
   keyPath: Array<string>
   item: any
-  icon?: any
+  icon?: React.ReactNode
 }
