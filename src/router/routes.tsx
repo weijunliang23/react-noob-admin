@@ -1,13 +1,22 @@
+
+import {
+  HomeOutlined,
+  TagOutlined,
+  RocketOutlined
+} from '@ant-design/icons';
+
 export const routes = [
   {
     name: "home",
     key: "home",
-    label: "首页"
+    label: "首页",
+    icon: <HomeOutlined />
   },
   {
     name: "advance",
     key: "pid-advance",
     label: "每日进步",
+    icon: <RocketOutlined />,
     children: [
       {
         name: "advance",
@@ -19,6 +28,7 @@ export const routes = [
   {
     name: "test",
     key: "test",
-    label: "每日测试"
+    label: "菜单管理",
+    icon: <TagOutlined />
   }
 ]

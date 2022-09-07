@@ -1,6 +1,10 @@
 import {
   MenuFoldOutlined,
-  MenuUnfoldOutlined
+  MenuUnfoldOutlined,
+  CaretDownOutlined,
+  HomeOutlined,
+  TagOutlined,
+  RocketOutlined
 } from '@ant-design/icons';
 import { Layout, Menu, Button } from 'antd';
 import React, { useState, useEffect } from 'react';
@@ -20,49 +24,55 @@ const LayoutIndex = () => {
       navigate('/home', { replace: true })
     }
   }, [])
+
   const [collapsed, setCollapsed] = useState(false);
+  useEffect(() => {
+    if (collapsed) {
+
+    }
+  }, [collapsed])
 
   // click-menu navigate level1 or invalid -> noop
   const handleClickMenu = (e: TypeMenu) => {
-    if (u.pathname === e.key || e.key.startsWith('pid')) return
+    if (u.pathname === e.key) return
     navigate(e.key)
   }
-  return (
-    <div>
-      <Layout className='layout-index'>
-        <Layout>
-          <Sider trigger={null} collapsible collapsed={collapsed}>
-            <div className="logo" />
-            <Menu
-              theme="dark"
-              mode="inline"
-              onClick={handleClickMenu}
-              defaultSelectedKeys={['home']}
-              items={routes}
-            />
-          </Sider>
-        </Layout>
-        <Layout className="site-layout"
 
+  const handleOpenChange = (e: any) => {
+    console.log(e);
+  }
+  return (
+    <div >
+      <Layout className='w-screen h-screen'>
+        <div className="logo" />
+        <Sider trigger={null} collapsible collapsed={collapsed}>
+          <Menu
+            mode="inline"
+            onClick={handleClickMenu}
+            defaultSelectedKeys={['home']}
+            items={routes}
+            onOpenChange={handleOpenChange}
+            expandIcon={<CaretDownOutlined />}
+          />
+        </Sider>
+        <Layout className="site-layout"
         >
           <Header
-            className="site-layout-background"
+            className="site-layout-background bg-gre"
             style={{
               padding: 0,
             }}
           >
             {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-              className: 'trigger',
-              onClick: () => setCollapsed(!collapsed),
+              className: 'trigger ml-4',
+              onClick: () => { setCollapsed(!collapsed) },
             })}
-            <Button className='dark:bg-black dark:text-white' onClick={useToggleTheme}>{
+            <Button className='dark:bg-black dark:text-white ml-8' onClick={useToggleTheme}>{
               getTheme() === 'dark' ? '切换明亮模式' : '切换黑夜模式'
             }</Button>
           </Header>
-        </Layout>
-        <Layout>
           <Content
-            className="site-layout-background"
+            className="site-layout-background "
             style={{
               margin: '24px 16px',
               padding: 24,
