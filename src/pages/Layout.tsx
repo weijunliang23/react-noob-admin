@@ -43,13 +43,14 @@ const LayoutIndex = () => {
   }
   return (
     <div >
-      <Layout className='w-screen h-screen'>
+      <Layout className='w-screen h-screen '>
         <div className="logo" />
-        <Sider trigger={null} collapsible collapsed={collapsed}>
+        <Sider className='bg-gre' trigger={null} collapsible collapsed={collapsed}>
           <Menu
             mode="inline"
             onClick={handleClickMenu}
             defaultSelectedKeys={['home']}
+            className="bg-slider"
             items={routes}
             onOpenChange={handleOpenChange}
             expandIcon={<CaretDownOutlined />}
@@ -67,14 +68,13 @@ const LayoutIndex = () => {
               className: 'trigger ml-4',
               onClick: () => { setCollapsed(!collapsed) },
             })}
-            <Button className='dark:bg-black dark:text-white ml-8' onClick={useToggleTheme}>{
+            <Button className='dark:bg-black dark:text-white ml-8 bg-slider' onClick={useToggleTheme}>{
               getTheme() === 'dark' ? '切换明亮模式' : '切换黑夜模式'
             }</Button>
           </Header>
           <Content
             className="site-layout-background "
             style={{
-              margin: '24px 16px',
               padding: 24,
               minHeight: 280,
             }}

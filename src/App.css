@@ -22,3 +22,6 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
+:deep(.ant-menu-item .ant-menu-item-selected) {
+  background-color: #f00 !important;
+}

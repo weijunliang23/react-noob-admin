@@ -26,9 +26,11 @@ export const routes = [
     ]
   },
   {
-    name: "test",
-    key: "test",
+    name: "menuAdmin",
+    key: "menuAdmin",
     label: "菜单管理",
     icon: <TagOutlined />
   }
 ]
+
+export type MenuItem = typeof routes

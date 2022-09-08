@@ -12,12 +12,15 @@ module.exports = {
       },
       colors: {
         gre: "#2fa968",
-        bcor: "#06b6d4"
+        bcor: "#06b6d4",
+        slider: "#b1d788",
+        link: "#409eff"
       }
     },
     screens: {
+      xs: "500px",
       sm: "768px",
-      md: "992px",
+      md: "950px",
       lg: "1400px",
       xl: "1920px"
     }
