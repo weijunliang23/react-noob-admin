@@ -1,9 +1,9 @@
 import { MockMethod } from "vite-plugin-mock"
 export default [
   {
-    url: "/api/get",
+    url: "/menuAdmin/list",
     method: "get",
-    response: ({ query }) => {
+    response: () => {
       return {
         code: 0,
         data: {
