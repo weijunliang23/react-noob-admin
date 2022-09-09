@@ -1,15 +1,16 @@
-import { configureStore, MiddlewareArray } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
+import counterReducer from './test'
 // ...
 // import additionalMiddleware from 'additional-middleware'
-import logger from 'redux-logger'
+//@ts-ignore
 
 export const store: any = configureStore({
   reducer: {
+    count: counterReducer
     // posts: postsReducer,
     // comments: commentsReducer,
     // users: usersReducer,
-  },
-  middleware: new MiddlewareArray().concat(logger),
+  }
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

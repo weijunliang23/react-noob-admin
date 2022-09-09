@@ -3,6 +3,8 @@ import { Button, Form, Input, Radio, Table } from 'antd';
 import { MenuItem, routes } from '../router/routes'
 import { SearchOutlined } from '@ant-design/icons';
 import { useAntdTable } from 'ahooks';
+import { useAppDispatch, useAppSelector } from '../hooks'
+import { decrement, increment } from '../store/test'
 interface Result {
   total: number;
   list: MenuItem;
@@ -19,6 +21,8 @@ const getTableData = (params?: { current: number, pageSize: number }): Promise<R
     })
   })
 };
+
+
 const actions = ['编辑', '删除', '查看', '菜单日志']
 const columns = [
   {
@@ -75,6 +79,9 @@ const rowSelection = {
   }
 };
 const Test = () => {
+  // test redux-toolkit
+  const count = useAppSelector((state) => state.count.value)
+  const dispatch = useAppDispatch()
   const [form] = Form.useForm();
   const onFormLayoutChange = (): void => {
     console.log(111);
@@ -82,7 +89,6 @@ const Test = () => {
   useEffect(() => {
     fetch('/api/get').then(res => res.json().then(req => {
       console.log(req);
-
     }))
   }, [])
   const { tableProps } = useAntdTable(getTableData)
@@ -109,8 +115,8 @@ const Test = () => {
         </Form.Item>
       </Form>
       <div className='flex justify-end space-x-4 p-4'>
-        <Button type="primary" className='rounted-md' >
-          新增
+        <Button type="primary" className='rounted-md' onClick={() => dispatch(increment())} >
+          新增{count}
         </Button>
         <Button type="primary" className='rounted-md'  >
           批量删除
