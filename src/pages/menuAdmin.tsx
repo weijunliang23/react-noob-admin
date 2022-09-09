@@ -38,7 +38,7 @@ const columns = [
     width: '400px',
     render: (record: MenuItem) => (
       <>
-        {actions.map(item => <Button type='text' className='text-link' onClick={() => handleList(item, record)}>{item}</Button>)}
+        {actions.map(item => <Button type='text' className='text-link' onClick={() => handleList(item, record)} key={item}>{item}</Button>)}
       </>
     )
   },
@@ -79,6 +79,12 @@ const Test = () => {
   const onFormLayoutChange = (): void => {
     console.log(111);
   }
+  useEffect(() => {
+    fetch('/api/get').then(res => res.json().then(req => {
+      console.log(req);
+
+    }))
+  }, [])
   const { tableProps } = useAntdTable(getTableData)
 
   return (
