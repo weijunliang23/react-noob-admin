@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { Button, Form, Input, Radio, Table } from 'antd';
 import { MenuItem, routes } from '../router/routes'
 import { SearchOutlined } from '@ant-design/icons';
 import { useAntdTable } from 'ahooks';
+import {
+  HomeOutlined,
+} from '@ant-design/icons';
 import { useAppDispatch, useAppSelector } from '../hooks'
-import { decrement, increment } from '../store/test'
+import Update from '../components/menuAdmin/update'
+import { addMenu } from '../store/menu'
 interface Result {
   total: number;
   list: MenuItem;
@@ -12,15 +16,7 @@ interface Result {
 interface TypeHandleList {
   [K: string]: (record: MenuItem) => void
 }
-// get-datasource
-const getTableData = (params?: { current: number, pageSize: number }): Promise<Result> => {
-  return new Promise((resolve) => {
-    resolve({
-      list: routes,
-      total: routes?.length
-    })
-  })
-};
+
 
 
 const actions = ['编辑', '删除', '查看', '菜单日志']
@@ -78,19 +74,37 @@ const rowSelection = {
     console.log(selectKey);
   }
 };
-const Test = () => {
+/**
+ *  com
+ * **/
+const MenuAdmin = () => {
+  const [updateShow, setUpdateShow] = useState(false)
+  const checkUpdateShow = useCallback(() => setUpdateShow(false), [])
   // test redux-toolkit
-  const count = useAppSelector((state) => state.count.value)
+  const list = useAppSelector((state) => state.menuList)
   const dispatch = useAppDispatch()
+  const addDispatch = (padLoad: MenuItem[number]) => {
+    dispatch(addMenu(padLoad))
+  }
+  // get-datasource
+  const getTableData = (params?: { current: number, pageSize: number }): Promise<Result> => {
+    return new Promise((resolve) => {
+      resolve({
+        list,
+        total: list?.length
+      })
+    })
+  };
+
   const [form] = Form.useForm();
   const onFormLayoutChange = (): void => {
     console.log(111);
   }
-  useEffect(() => {
-    fetch('/api/get').then(res => res.json().then(req => {
-      console.log(req);
-    }))
-  }, [])
+  // useEffect(() => {
+  //   fetch('/menuAdmin/list').then(res => res.json().then(req => {
+  //     console.log(req);
+  //   }))
+  // }, [])
   const { tableProps } = useAntdTable(getTableData)
 
   return (
@@ -115,10 +129,10 @@ const Test = () => {
         </Form.Item>
       </Form>
       <div className='flex justify-end space-x-4 p-4'>
-        <Button type="primary" className='rounted-md' onClick={() => dispatch(increment())} >
-          新增{count}
+        <Button type="primary" className='rounted-md' onClick={() => setUpdateShow(true)} >
+          新增
         </Button>
-        <Button type="primary" className='rounted-md'  >
+        <Button type="primary" className='rounted-md' onClick={() => addDispatch()} >
           批量删除
         </Button>
         <Button type="primary" className='rounted-md'>
@@ -131,8 +145,10 @@ const Test = () => {
       <div>
         <Table rowSelection={rowSelection} columns={columns} rowKey="key" {...tableProps} />
       </div>
+      {/* 编辑等组件 */}
+      <Update updateShow={updateShow} checkShow={checkUpdateShow}></Update>
     </div>
   )
 }
 
-export default Test
+export default React.memo(MenuAdmin)

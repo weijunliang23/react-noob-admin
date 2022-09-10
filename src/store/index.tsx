@@ -1,15 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './test'
+import menuReducer from './menu'
 // ...
 // import additionalMiddleware from 'additional-middleware'
 //@ts-ignore
 
 export const store: any = configureStore({
   reducer: {
-    count: counterReducer
-    // posts: postsReducer,
-    // comments: commentsReducer,
-    // users: usersReducer,
+    count: counterReducer,
+    menuList: menuReducer
   }
 })
 
