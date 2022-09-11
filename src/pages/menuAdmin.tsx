@@ -105,7 +105,9 @@ const MenuAdmin = () => {
   //     console.log(req);
   //   }))
   // }, [])
-  const { tableProps } = useAntdTable(getTableData)
+  const { tableProps, search } = useAntdTable(getTableData)
+  const { submit, reset } = search;
+
 
   return (
     <div>
@@ -123,7 +125,7 @@ const MenuAdmin = () => {
           <Input placeholder="菜单编号" />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" icon={<SearchOutlined />} className="rounded-md sm:mt-4 md:mt-0">
+          <Button type="primary" icon={<SearchOutlined />} className="rounded-md sm:mt-4 md:mt-0" onClick={reset}>
             搜索
           </Button>
         </Form.Item>
@@ -132,7 +134,7 @@ const MenuAdmin = () => {
         <Button type="primary" className='rounted-md' onClick={() => setUpdateShow(true)} >
           新增
         </Button>
-        <Button type="primary" className='rounted-md' onClick={() => addDispatch()} >
+        <Button type="primary" className='rounted-md'>
           批量删除
         </Button>
         <Button type="primary" className='rounted-md'>
@@ -146,7 +148,7 @@ const MenuAdmin = () => {
         <Table rowSelection={rowSelection} columns={columns} rowKey="key" {...tableProps} />
       </div>
       {/* 编辑等组件 */}
-      <Update updateShow={updateShow} checkShow={checkUpdateShow}></Update>
+      <Update updateShow={updateShow} checkShow={checkUpdateShow} addDispatch={addDispatch}></Update>
     </div>
   )
 }
