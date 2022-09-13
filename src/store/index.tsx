@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './test'
 import menuReducer from './menu'
+import localReducer from "./local";
 // ...
 // import additionalMiddleware from 'additional-middleware'
 //@ts-ignore
@@ -8,7 +9,8 @@ import menuReducer from './menu'
 export const store: any = configureStore({
   reducer: {
     count: counterReducer,
-    menuList: menuReducer
+    menuList: menuReducer,
+    local: localReducer
   }
 })
 

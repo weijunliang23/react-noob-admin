@@ -15,13 +15,13 @@ export const routes = [
   {
     name: "advance",
     key: "pid-advance",
-    label: "每日进步",
+    label: "功能合集",
     icon: <RocketOutlined />,
     children: [
       {
-        name: "advance",
-        key: "advance",
-        label: "每日进步-1"
+        name: "international",
+        key: "international",
+        label: "国际化"
       }
     ]
   },
@@ -33,4 +33,20 @@ export const routes = [
   }
 ]
 
-export type MenuItem = typeof routes
+export type MenuItem = ({
+  name: string;
+  key: string;
+  label: string;
+  icon?: JSX.Element;
+  children?: undefined;
+} | {
+  name: string;
+  key: string;
+  label: string;
+  icon: JSX.Element;
+  children: {
+    name: string;
+    key: string;
+    label: string;
+  }[];
+})[]

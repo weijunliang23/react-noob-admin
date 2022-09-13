@@ -10,6 +10,8 @@ import { Layout, Menu, Button } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { NavLink as Link, useLocation, Outlet, useNavigate } from "react-router-dom"
 import { TypeMenu } from 'src/@types/test';
+import { useAppDispatch, useAppSelector } from '../hooks'
+import { change } from '../store/local'
 import { routes } from '../router/routes'
 import { useToggleTheme, getTheme } from '../utils/toggleTheme'
 
@@ -17,7 +19,8 @@ const { Header, Sider, Content } = Layout;
 const LayoutIndex = () => {
   const u = useLocation()
   const navigate = useNavigate()
-
+  const locale = useAppSelector(state => state.local)
+  const dispatch = useAppDispatch()
   // redirect
   useEffect(() => {
     if (u.pathname === '/') {
@@ -40,6 +43,11 @@ const LayoutIndex = () => {
 
   const handleOpenChange = (e: any) => {
     console.log(e);
+  }
+
+  const handleCheckLocal = (): any => {
+    const payLoad = locale === 'enUS' ? 'zhCN' : 'enUS'
+    dispatch(change(payLoad))
   }
   return (
     <div >
@@ -71,6 +79,7 @@ const LayoutIndex = () => {
             <Button className='dark:bg-black dark:text-white ml-8 bg-slider' onClick={useToggleTheme}>{
               getTheme() === 'dark' ? '切换明亮模式' : '切换黑夜模式'
             }</Button>
+            <Button className='ml-4 hover:bg-pink-200' onClick={handleCheckLocal}>{locale === 'enUS' ? '切换中文' : 'English'}</Button>
           </Header>
           <Content
             className="site-layout-background "
