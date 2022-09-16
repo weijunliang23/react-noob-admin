@@ -21,9 +21,8 @@ abstract class TestSon extends Test {
     this.fc3() // 为私有方法只能在Test类里访问
   }
 }
-
 const a = new TestSon() // TestSon为抽象类不能创建实例
 a.fc1()
 a.fc2()
-const b = new Test()
-b.fc3() // 只能在类和子类里访问
+a.fc3() // 只能在类和子类里访问
+console.log(a.name1)
