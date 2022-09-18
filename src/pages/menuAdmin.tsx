@@ -101,10 +101,31 @@ const MenuAdmin = () => {
     console.log(111);
   }
   // useEffect(() => {
-  //   fetch('/menuAdmin/list').then(res => res.json().then(req => {
+  //   fetch('/cats/985').then(res => res.json().then(req => {
   //     console.log(req);
-  //   }))
+  //   })
+  //   )
   // }, [])
+  useEffect(() => {
+    fetch('/api/cats/create', {
+      method: 'post', headers: {
+        'Content-Type': 'application/json',
+      }, body: JSON.stringify({ name: '魏君粮', age: 18, breed: '黄种人' })
+    }).then(res => {
+      console.log(res);
+    }
+
+    )
+    fetch('/api/cats/createIndex/kaijia', {
+      method: 'get', headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then(res => {
+      console.log(res);
+    }
+
+    )
+  }, [])
   const { tableProps, search } = useAntdTable(getTableData)
   const { submit, reset } = search;
 

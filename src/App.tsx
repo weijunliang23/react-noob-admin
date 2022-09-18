@@ -19,7 +19,6 @@ languageList.some((item) => {
     }
   }
 })
-console.log(temp, 1);
 function App() {
   return (
     <>
