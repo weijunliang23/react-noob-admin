@@ -105,7 +105,7 @@ const MenuAdmin = () => {
   //     console.log(req);
   //   })
   //   )
-  // }, [])
+  // }, [])  // test github
   useEffect(() => {
     fetch('/api/cats/create', {
       method: 'post', headers: {
