@@ -1,0 +1,6 @@
+.bg {
+  background: url(https://img2.baidu.com/it/u=1488586991,2268071059&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1664730000&t=266392649a2d7fa697e54b1759ff5cd7) no-repeat
+}
+.ff {
+  backdrop-filter: blur(10px);
+}
