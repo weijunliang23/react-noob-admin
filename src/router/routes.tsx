@@ -30,6 +30,12 @@ export const routes = [
     key: "menuAdmin",
     label: "菜单管理",
     icon: <TagOutlined />
+  },
+  {
+    name: "dingdingAdmin",
+    key: "dingdingAdmin",
+    label: "钉钉控制台",
+    icon: <TagOutlined />
   }
 ]
 
