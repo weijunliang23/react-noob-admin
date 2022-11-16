@@ -30,11 +30,33 @@
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
     "autoprefixer": "^10.4.8",
+    "cz-customizable": "^6.3.0",
     "postcss": "^8.4.16",
     "postcss-import": "^15.0.0",
     "redux-devtools": "^3.7.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "typescript": "^4.6.4",
     "vite-plugin-mock": "^2.9.6"
-  }
+  },
+  "main": "postcss.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weijunliang23/react-noob-admin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/weijunliang23/react-noob-admin/issues"
+  },
+  "homepage": "https://github.com/weijunliang23/react-noob-admin#readme",
+  "description": "",
+  "config": {
+    "commitizen": {
+    "path": "node_modules/cz-customizable"
+       }
+     }
 }
