@@ -1,0 +1,21 @@
+name: nobugs`commit
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "* * * * *" #由于GitHub Actions的限制，如果设置为 * * * * * 实际的执行频率为每 5 分执行一次。
+jobs:
+  autogreen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+      - name: Auto always green
+        run: |
+          git config --local user.email "929314787@qq.com" # 此处替换成你GitHub的邮箱地址 
+          git config --local user.name "weijunliang23" # 此处替换成你GitHub的账号昵称
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git pull --rebase
+          git commit --allow-empty -m "no bugs,no bugs!"
+          git push
