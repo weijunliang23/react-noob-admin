@@ -14,7 +14,8 @@ module.exports = {
         gre: "#2fa968",
         bcor: "#06b6d4",
         slider: "#b1d788",
-        link: "#409eff"
+        link: "#409eff",
+        dblue:"#0076f6"
       }
     },
     screens: {
