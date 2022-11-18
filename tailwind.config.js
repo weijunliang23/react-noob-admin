@@ -15,7 +15,8 @@ module.exports = {
         bcor: "#06b6d4",
         slider: "#b1d788",
         link: "#409eff",
-        dblue:"#0076f6"
+        dblue:"#0076f6",
+        dgray:"#f1f2f3"
       }
     },
     screens: {
