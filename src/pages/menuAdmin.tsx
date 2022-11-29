@@ -161,7 +161,7 @@ const MenuAdmin = () => {
         <Button type="primary" className='rounted-md'>
           菜单配置
         </Button>
-        <Button type="primary" className='rounted-md' >
+        <Button type="primary" className='rounted-md'>
           查看删除日志
         </Button>
       </div>
