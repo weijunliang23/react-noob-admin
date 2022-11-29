@@ -23,9 +23,6 @@ const dingdingAdmin = () => {
       bottom: clientHeight - (targetRect.bottom - uiData.y),
     });
   };
-  const showModal = () => {
-    setOpen(true);
-  };
 
   const handleOk = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
@@ -38,6 +35,9 @@ const dingdingAdmin = () => {
   };
   return (
     <div id='dingding'>
+      {!open ?
+        <Button onClick={() => setOpen(true)}>点击开启钉钉</Button> : <></>
+      }
       <Modal
         className='h-100'
         title={
@@ -54,14 +54,11 @@ const dingdingAdmin = () => {
             onMouseOut={() => {
               setDisabled(true);
             }}
-            // fix eslintjsx-a11y/mouse-events-have-key-events
-            // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/mouse-events-have-key-events.md
+
             onFocus={() => { }}
             onBlur={() => { }}
-          // end
           >
-            <Navbar></Navbar>
-
+            <Navbar setOpen={setOpen}></Navbar>
           </div>
         }
         visible={open}
@@ -82,6 +79,7 @@ const dingdingAdmin = () => {
       >
         <Siderbar></Siderbar>
       </Modal>
+
     </div>
   )
 }

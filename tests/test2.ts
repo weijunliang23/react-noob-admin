@@ -21,6 +21,13 @@
     }
     return Explore.instance; 
   }
+
+}
+
+class UserInfo {
+  constructor(parameters) {
+    
+  }
 }
 
 

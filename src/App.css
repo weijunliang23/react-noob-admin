@@ -1,8 +1,8 @@
 @import './styles/common.css';
 @import 'antd/dist/antd.css';
 @import './styles/dingding.css';
-
-
+@import './styles/icon/iconfont.css';
+@import '//at.alicdn.com/t/font_2918585_6yeowqlgomq.css';
 
 
 #components-layout-demo-custom-trigger .trigger {
@@ -25,4 +25,23 @@
 
 :deep(.ant-menu-item .ant-menu-item-selected) {
   background-color: #f00 !important;
+}
+
+/* 滚动槽 */
+::-webkit-scrollbar {
+  width: 6px;
+  /* height设置无效,因为是通过内容自动计算的 */
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }

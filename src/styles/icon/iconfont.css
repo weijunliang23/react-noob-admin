@@ -1,0 +1,115 @@
+@font-face {
+  font-family: "tt";
+  /* Project id 2918585 */
+  src: url('iconfont.woff2?t=1669688983606') format('woff2'),
+    url('iconfont.woff?t=1669688983606') format('woff'),
+    url('iconfont.ttf?t=1669688983606') format('truetype');
+}
+
+.tt {
+  font-family: "tt" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tt-guanbi:before {
+  content: "\e601";
+}
+
+.tt-pinglun:before {
+  content: "\e602";
+}
+
+.tt-sousuo:before {
+  content: "\e603";
+}
+
+.tt-fenxiang:before {
+  content: "\e605";
+}
+
+.tt-shanchu:before {
+  content: "\e606";
+}
+
+.tt-youjiantou:before {
+  content: "\e607";
+}
+
+.tt-fenxiang1:before {
+  content: "\e608";
+}
+
+.tt-gengduo:before {
+  content: "\e609";
+}
+
+.tt-pinglun1:before {
+  content: "\e60a";
+}
+
+.tt-shouye:before {
+  content: "\e60b";
+}
+
+.tt-shanchu1:before {
+  content: "\e60c";
+}
+
+.tt-wenda:before {
+  content: "\e60d";
+}
+
+.tt-wuwangluo:before {
+  content: "\e60e";
+}
+
+.tt-shouji1:before {
+  content: "\e60f";
+}
+
+.tt-lishi:before {
+  content: "\e610";
+}
+
+.tt-yuedu:before {
+  content: "\e611";
+}
+
+.tt-shoucang:before {
+  content: "\e612";
+}
+
+.tt-dianzan2:before {
+  content: "\e613";
+}
+
+.tt-wode:before {
+  content: "\e615";
+}
+
+.tt-guanbi1:before {
+  content: "\e616";
+}
+
+.tt-zuojiantou:before {
+  content: "\e617";
+}
+
+.tt-dianzan:before {
+  content: "\e618";
+}
+
+.tt-shipin:before {
+  content: "\e619";
+}
+
+.tt-zuopin:before {
+  content: "\e61b";
+}
+
+.tt-yanzhengma:before {
+  content: "\e61c";
+}

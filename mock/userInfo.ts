@@ -4,6 +4,8 @@ export default [
     url: "/test",
     method: "get",
     response: () => {
+      console.log(898);
+      
       return {
         code: 0,
         data: {

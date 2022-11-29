@@ -17,6 +17,9 @@ module.exports = {
         link: "#409eff",
         dblue:"#0076f6",
         dgray:"#f1f2f3"
+      },
+      height:{
+        "70vh" : '70vh'
       }
     },
     screens: {
